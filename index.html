@@ -24,7 +24,13 @@
       <input type="text" id="category" placeholder="Category" required />
       <input type="text" id="subCategory" placeholder="Sub-Category" />
       <input type="text" id="description" placeholder="Description" />
-      <input type="text" id="paymentMode" placeholder="Payment Mode" />
+
+      <!-- Updated Payment Mode Dropdown -->
+      <select id="paymentMode" required>
+        <option value="">Select Payment Mode</option>
+        <option value="UPI">UPI</option>
+        <option value="Cash">Cash</option>
+      </select>
 
       <select id="fixedVariable">
         <option value="">Fixed/Variable</option>
@@ -38,7 +44,7 @@
         <option value="Want">Want</option>
       </select>
 
-      <input type="number" id="amount" placeholder="Amount" required />
+      <input type="number" id="amount" placeholder="Amount" required min="0" />
       <input type="text" id="tags" placeholder="Tags (comma separated)" />
 
       <button type="submit">Add Entry</button>

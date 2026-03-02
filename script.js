@@ -3,6 +3,8 @@ const form = document.getElementById("financeForm");
 const message = document.getElementById("message");
 
 const scriptURL = "https://script.google.com/macros/s/AKfycbx9hoQWLC77KOaxO__sZu20qBjDhu-tn64ps-491p-uuqd5dmsKK2AvOWSTiCVX6xKJ/exec"; // paste your /exec link here
+// Auto-set today's date
+document.getElementById("date").valueAsDate = new Date();
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -50,6 +52,7 @@ form.addEventListener("submit", async (e) => {
       message.innerText = "Entry added successfully!";
       message.style.color = "green";
       form.reset();
+      document.getElementById("date").valueAsDate = new Date();
     } else {
       message.innerText = "Error adding entry.";
       message.style.color = "red";
