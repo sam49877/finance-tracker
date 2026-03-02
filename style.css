@@ -28,7 +28,7 @@ form button {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 16px; /* prevents mobile zoom */
+  font-size: 16px;
   box-sizing: border-box;
 }
 
@@ -48,6 +48,39 @@ button {
 
 button:hover {
   background-color: #333;
+}
+
+/* Payment Buttons */
+.payment-container {
+  margin-bottom: 14px;
+}
+
+.payment-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.payment-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.payment-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.payment-btn.active {
+  background: black;
+  color: white;
+  border-color: black;
 }
 
 #message {
