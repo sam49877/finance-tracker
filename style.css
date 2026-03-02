@@ -20,8 +20,8 @@ h2 {
   margin-bottom: 20px;
 }
 
-form input,
-form button {
+/* Inputs Full Width */
+form input {
   width: 100%;
   margin-bottom: 14px;
   padding: 12px;
@@ -36,15 +36,19 @@ form input:focus {
   border-color: #000;
 }
 
-button {
+/* Submit Button Full Width */
+#submitBtn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
   background-color: black;
   color: white;
-  cursor: pointer;
-  font-weight: bold;
   border: none;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-button:hover {
+#submitBtn:hover {
   background-color: #333;
 }
 
@@ -59,13 +63,14 @@ button:hover {
   font-size: 14px;
 }
 
+/* IMPORTANT FIX HERE */
 .toggle-group {
   display: flex;
   gap: 10px;
 }
 
 .toggle-btn {
-  flex: 1;
+  flex: 1;                /* makes them equal width */
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
