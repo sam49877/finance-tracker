@@ -21,7 +21,6 @@ h2 {
 }
 
 form input,
-form select,
 form button {
   width: 100%;
   margin-bottom: 14px;
@@ -32,8 +31,7 @@ form button {
   box-sizing: border-box;
 }
 
-form input:focus,
-form select:focus {
+form input:focus {
   outline: none;
   border-color: #000;
 }
@@ -50,39 +48,39 @@ button:hover {
   background-color: #333;
 }
 
-/* Payment Mode Section */
-.payment-container {
+/* Toggle Sections */
+.toggle-container {
   margin-bottom: 14px;
 }
 
-.payment-container label {
+.toggle-container label {
   display: block;
   margin-bottom: 6px;
   font-size: 14px;
 }
 
-.payment-buttons {
+.toggle-group {
   display: flex;
   gap: 10px;
 }
 
-.payment-btn {
+.toggle-btn {
   flex: 1;
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  background-color: white;   /* Force white */
-  color: black;              /* Force black text */
+  background-color: white;
+  color: black;
   cursor: pointer;
   font-size: 16px;
   transition: 0.2s;
 }
 
-.payment-btn:focus {
-  outline: none; /* remove browser focus */
+.toggle-btn:focus {
+  outline: none;
 }
 
-.payment-btn.active {
+.toggle-btn.active {
   background-color: black;
   color: white;
   border-color: black;

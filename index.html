@@ -15,37 +15,49 @@
 
       <input type="date" id="date" required />
 
-      <select id="type" required>
-        <option value="">Select Type</option>
-        <option value="Expense">Expense</option>
-        <option value="Income">Income</option>
-      </select>
+      <!-- TYPE -->
+      <div class="toggle-container">
+        <label>Type</label>
+        <div class="toggle-group" data-target="type">
+          <button type="button" class="toggle-btn" data-value="Expense">Expense</button>
+          <button type="button" class="toggle-btn" data-value="Income">Income</button>
+        </div>
+      </div>
+      <input type="hidden" id="type" required>
 
       <input type="text" id="category" placeholder="Category" required />
       <input type="text" id="subCategory" placeholder="Sub-Category" />
       <input type="text" id="description" placeholder="Description" />
 
-      <!-- Payment Mode Buttons -->
-      <div class="payment-container">
+      <!-- PAYMENT MODE -->
+      <div class="toggle-container">
         <label>Payment Mode</label>
-        <div class="payment-buttons">
-          <button type="button" class="payment-btn" data-value="UPI">UPI</button>
-          <button type="button" class="payment-btn" data-value="Cash">Cash</button>
+        <div class="toggle-group" data-target="paymentMode">
+          <button type="button" class="toggle-btn" data-value="UPI">UPI</button>
+          <button type="button" class="toggle-btn" data-value="Cash">Cash</button>
         </div>
       </div>
       <input type="hidden" id="paymentMode" required>
 
-      <select id="fixedVariable">
-        <option value="">Fixed/Variable</option>
-        <option value="Fixed">Fixed</option>
-        <option value="Variable">Variable</option>
-      </select>
+      <!-- FIXED / VARIABLE -->
+      <div class="toggle-container">
+        <label>Fixed / Variable</label>
+        <div class="toggle-group" data-target="fixedVariable">
+          <button type="button" class="toggle-btn" data-value="Fixed">Fixed</button>
+          <button type="button" class="toggle-btn" data-value="Variable">Variable</button>
+        </div>
+      </div>
+      <input type="hidden" id="fixedVariable">
 
-      <select id="needWant">
-        <option value="">Need/Want</option>
-        <option value="Need">Need</option>
-        <option value="Want">Want</option>
-      </select>
+      <!-- NEED / WANT -->
+      <div class="toggle-container">
+        <label>Need / Want</label>
+        <div class="toggle-group" data-target="needWant">
+          <button type="button" class="toggle-btn" data-value="Need">Need</button>
+          <button type="button" class="toggle-btn" data-value="Want">Want</button>
+        </div>
+      </div>
+      <input type="hidden" id="needWant">
 
       <input type="number" id="amount" placeholder="Amount" required min="0" />
       <input type="text" id="tags" placeholder="Tags (comma separated)" />
