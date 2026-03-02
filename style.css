@@ -39,7 +39,7 @@ form select:focus {
 }
 
 button {
-  background-color: #000;
+  background-color: black;
   color: white;
   cursor: pointer;
   font-weight: bold;
@@ -50,7 +50,7 @@ button:hover {
   background-color: #333;
 }
 
-/* Payment Buttons */
+/* Payment Mode Section */
 .payment-container {
   margin-bottom: 14px;
 }
@@ -71,14 +71,19 @@ button:hover {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  background: white;
+  background-color: white;   /* Force white */
+  color: black;              /* Force black text */
   cursor: pointer;
   font-size: 16px;
   transition: 0.2s;
 }
 
+.payment-btn:focus {
+  outline: none; /* remove browser focus */
+}
+
 .payment-btn.active {
-  background: black;
+  background-color: black;
   color: white;
   border-color: black;
 }

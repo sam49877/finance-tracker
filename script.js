@@ -6,7 +6,7 @@ const submitBtn = document.getElementById("submitBtn");
 const scriptURL = "https://script.google.com/macros/s/AKfycbx9hoQWLC77KOaxO__sZu20qBjDhu-tn64ps-491p-uuqd5dmsKK2AvOWSTiCVX6xKJ/exec"; // paste your /exec link here
 // Auto-set today's date
 
-
+// Auto-set today's date
 document.getElementById("date").valueAsDate = new Date();
 
 // Payment button logic
@@ -19,6 +19,12 @@ paymentButtons.forEach(button => {
     button.classList.add("active");
     paymentInput.value = button.getAttribute("data-value");
   });
+});
+
+// Force reset on page load (Fix PC glitch)
+window.addEventListener("load", () => {
+  paymentButtons.forEach(btn => btn.classList.remove("active"));
+  paymentInput.value = "";
 });
 
 form.addEventListener("submit", async (e) => {
