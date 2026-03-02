@@ -1,14 +1,24 @@
+
 const form = document.getElementById("financeForm");
 const message = document.getElementById("message");
 
-// 🔴 REPLACE THIS WITH YOUR APPS SCRIPT URL
-const scriptURL = "https://script.google.com/macros/s/AKfycbx9hoQWLC77KOaxO__sZu20qBjDhu-tn64ps-491p-uuqd5dmsKK2AvOWSTiCVX6xKJ/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbx9hoQWLC77KOaxO__sZu20qBjDhu-tn64ps-491p-uuqd5dmsKK2AvOWSTiCVX6xKJ/exec"; // paste your /exec link here
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const dateValue = document.getElementById("date").value;
-  const monthValue = new Date(dateValue).toLocaleString('default', { month: 'short', year: 'numeric' });
+
+  if (!dateValue) {
+    message.innerText = "Please select a date.";
+    message.style.color = "red";
+    return;
+  }
+
+  const monthValue = new Date(dateValue).toLocaleString('default', {
+    month: 'short',
+    year: 'numeric'
+  });
 
   const data = {
     date: dateValue,
@@ -26,6 +36,9 @@ form.addEventListener("submit", async (e) => {
   };
 
   try {
+    message.innerText = "Submitting...";
+    message.style.color = "black";
+
     const response = await fetch(scriptURL, {
       method: "POST",
       body: JSON.stringify(data)
@@ -38,11 +51,12 @@ form.addEventListener("submit", async (e) => {
       message.style.color = "green";
       form.reset();
     } else {
-      throw new Error(result.message);
+      message.innerText = "Error adding entry.";
+      message.style.color = "red";
     }
 
   } catch (error) {
-    message.innerText = "Error adding entry.";
+    message.innerText = "Network error.";
     message.style.color = "red";
   }
 });

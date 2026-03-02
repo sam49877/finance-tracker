@@ -1,18 +1,18 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f6f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  margin: 0;
+  padding: 20px;
 }
 
 .container {
   background: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  width: 350px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
 }
 
 h2 {
@@ -24,23 +24,34 @@ form input,
 form select,
 form button {
   width: 100%;
-  margin-bottom: 12px;
-  padding: 8px;
-  border-radius: 5px;
+  margin-bottom: 14px;
+  padding: 12px;
+  border-radius: 8px;
   border: 1px solid #ccc;
+  font-size: 16px; /* prevents mobile zoom */
+  box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #000;
 }
 
 button {
-  background-color: #222;
+  background-color: #000;
   color: white;
   cursor: pointer;
+  font-weight: bold;
+  border: none;
 }
 
 button:hover {
-  background-color: #444;
+  background-color: #333;
 }
 
 #message {
   text-align: center;
   font-size: 14px;
+  margin-top: 10px;
 }
