@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finance Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Finance Entry</h2>
+
+    <form id="financeForm">
+
+      <input type="date" id="date" required />
+
+      <select id="type" required>
+        <option value="">Select Type</option>
+        <option value="Expense">Expense</option>
+        <option value="Income">Income</option>
+      </select>
+
+      <input type="text" id="category" placeholder="Category" required />
+      <input type="text" id="subCategory" placeholder="Sub-Category" />
+      <input type="text" id="description" placeholder="Description" />
+
+      <input type="text" id="paymentMode" placeholder="Payment Mode" />
+
+      <select id="fixedVariable">
+        <option value="">Fixed/Variable</option>
+        <option value="Fixed">Fixed</option>
+        <option value="Variable">Variable</option>
+      </select>
+
+      <select id="needWant">
+        <option value="">Need/Want</option>
+        <option value="Need">Need</option>
+        <option value="Want">Want</option>
+      </select>
+
+      <input type="number" id="amount" placeholder="Amount" required />
+
+      <input type="text" id="tags" placeholder="Tags (comma separated)" />
+
+      <button type="submit">Add Entry</button>
+
+      <p id="message"></p>
+
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
