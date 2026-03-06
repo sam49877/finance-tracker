@@ -1,74 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finance Tracker</title>
-  <link rel="stylesheet" href="style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Expense Tracker</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-  <div class="container">
-    <h2>Finance Entry</h2>
+<div class="container">
 
-    <form id="financeForm">
+<h2>Expense Entry</h2>
 
-      <input type="date" id="date" required />
+<input type="date" id="date">
 
-      <!-- TYPE -->
-      <div class="toggle-container">
-        <label>Type</label>
-        <div class="toggle-group" data-target="type">
-          <button type="button" class="toggle-btn" data-value="Expense">Expense</button>
-          <button type="button" class="toggle-btn" data-value="Income">Income</button>
-        </div>
-      </div>
-      <input type="hidden" id="type" required>
+<input type="text" id="month" placeholder="Month">
 
-      <input type="text" id="category" placeholder="Category" required />
-      <input type="text" id="subCategory" placeholder="Sub-Category" />
-      <input type="text" id="description" placeholder="Description" />
+<input type="text" id="description" placeholder="Description">
 
-      <!-- PAYMENT MODE -->
-      <div class="toggle-container">
-        <label>Payment Mode</label>
-        <div class="toggle-group" data-target="paymentMode">
-          <button type="button" class="toggle-btn" data-value="UPI">UPI</button>
-          <button type="button" class="toggle-btn" data-value="Cash">Cash</button>
-        </div>
-      </div>
-      <input type="hidden" id="paymentMode" required>
 
-      <!-- FIXED / VARIABLE -->
-      <div class="toggle-container">
-        <label>Fixed / Variable</label>
-        <div class="toggle-group" data-target="fixedVariable">
-          <button type="button" class="toggle-btn" data-value="Fixed">Fixed</button>
-          <button type="button" class="toggle-btn" data-value="Variable">Variable</button>
-        </div>
-      </div>
-      <input type="hidden" id="fixedVariable">
+<label>Category</label>
 
-      <!-- NEED / WANT -->
-      <div class="toggle-container">
-        <label>Need / Want</label>
-        <div class="toggle-group" data-target="needWant">
-          <button type="button" class="toggle-btn" data-value="Need">Need</button>
-          <button type="button" class="toggle-btn" data-value="Want">Want</button>
-        </div>
-      </div>
-      <input type="hidden" id="needWant">
+<div class="button-group">
 
-      <input type="number" id="amount" placeholder="Amount" required min="0" />
-      <input type="text" id="tags" placeholder="Tags (comma separated)" />
+<button onclick="selectButton(this,'category')">Transport</button>
+<button onclick="selectButton(this,'category')">Groceries</button>
+<button onclick="selectButton(this,'category')">Utilities</button>
+<button onclick="selectButton(this,'category')">Recharge</button>
+<button onclick="selectButton(this,'category')">Health</button>
 
-      <button type="submit" id="submitBtn">Add Entry</button>
+</div>
 
-      <p id="message"></p>
+<input type="hidden" id="category">
 
-    </form>
-  </div>
 
-  <script src="script.js"></script>
+<label>Sub Category</label>
+
+<input type="text" id="subcategory">
+
+
+<label>Merchant</label>
+
+<div class="button-group">
+
+<button onclick="selectButton(this,'merchant')">BEST</button>
+<button onclick="selectButton(this,'merchant')">DMart</button>
+<button onclick="selectButton(this,'merchant')">Jio</button>
+<button onclick="selectButton(this,'merchant')">Gym</button>
+<button onclick="selectButton(this,'merchant')">Other</button>
+
+</div>
+
+<input type="hidden" id="merchant">
+
+
+<label>Payment Mode</label>
+
+<div class="button-group">
+
+<button onclick="selectButton(this,'paymentmode')">UPI</button>
+<button onclick="selectButton(this,'paymentmode')">Cash</button>
+
+</div>
+
+<input type="hidden" id="paymentmode">
+
+
+<label>Source</label>
+
+<input type="text" id="source" placeholder="Salary / Cash / Account">
+
+
+<label>Frequency</label>
+
+<div class="button-group">
+
+<button onclick="selectButton(this,'frequency')">One-Time</button>
+<button onclick="selectButton(this,'frequency')">Weekly</button>
+<button onclick="selectButton(this,'frequency')">Monthly</button>
+<button onclick="selectButton(this,'frequency')">Yearly</button>
+
+</div>
+
+<input type="hidden" id="frequency">
+
+
+<label>Fixed / Variable</label>
+
+<div class="button-group">
+
+<button onclick="selectButton(this,'fixedvariable')">Fixed</button>
+<button onclick="selectButton(this,'fixedvariable')">Variable</button>
+
+</div>
+
+<input type="hidden" id="fixedvariable">
+
+
+<label>Need / Want</label>
+
+<div class="button-group">
+
+<button onclick="selectButton(this,'needwant')">Need</button>
+<button onclick="selectButton(this,'needwant')">Want</button>
+
+</div>
+
+<input type="hidden" id="needwant">
+
+
+<input type="number" id="amount" placeholder="Amount">
+
+<input type="text" id="tags" placeholder="Tags">
+
+
+<button class="submit-btn" onclick="submitData()">Add Expense</button>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
