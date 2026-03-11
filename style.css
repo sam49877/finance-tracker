@@ -1,3 +1,5 @@
+/* GENERAL PAGE */
+
 body{
 font-family: Arial, sans-serif;
 background:#f5f5f5;
@@ -6,6 +8,9 @@ margin:auto;
 max-width:1100px;
 }
 
+
+/* MAIN CARD */
+
 .container{
 background:white;
 padding:30px;
@@ -13,10 +18,16 @@ border-radius:10px;
 box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
+
+/* HEADING */
+
 h2{
 text-align:center;
 margin-bottom:25px;
 }
+
+
+/* LABELS */
 
 label{
 font-weight:bold;
@@ -25,7 +36,10 @@ margin-top:12px;
 margin-bottom:6px;
 }
 
-input{
+
+/* INPUT FIELDS */
+
+input, textarea{
 width:100%;
 padding:12px;
 margin-bottom:16px;
@@ -35,12 +49,18 @@ font-size:14px;
 box-sizing:border-box;
 }
 
+
+/* BUTTON GROUP */
+
 .button-group{
 display:flex;
 gap:10px;
 flex-wrap:wrap;
 margin-bottom:16px;
 }
+
+
+/* BUTTON STYLE */
 
 .button-group button{
 flex:1;
@@ -51,17 +71,27 @@ background:white;
 border-radius:6px;
 cursor:pointer;
 font-size:14px;
+transition:0.2s;
 }
+
+
+/* BUTTON HOVER */
 
 .button-group button:hover{
 background:#f1f1f1;
 }
+
+
+/* SELECTED BUTTON */
 
 .button-group button.active{
 background:#111;
 color:white;
 border-color:#111;
 }
+
+
+/* SUBMIT BUTTON */
 
 .submit-btn{
 width:100%;
@@ -73,11 +103,15 @@ border-radius:8px;
 font-size:16px;
 cursor:pointer;
 margin-top:10px;
+transition:0.2s;
 }
 
 .submit-btn:hover{
 background:#000;
 }
+
+
+/* -------- MOBILE LAYOUT -------- */
 
 @media(max-width:600px){
 
@@ -89,4 +123,44 @@ padding:20px;
 flex:1 1 45%;
 }
 
+}
+
+
+/* -------- DESKTOP IMPROVEMENTS -------- */
+
+@media(min-width:800px){
+
+.container{
+max-width:800px;
+margin:auto;
+}
+
+.button-group button{
+flex:1 1 30%;
+}
+
+input, textarea{
+font-size:15px;
+}
+
+}
+
+
+.top-nav{
+display:flex;
+justify-content:flex-end;
+margin-bottom:20px;
+}
+
+.top-nav a{
+text-decoration:none;
+background:#111;
+color:white;
+padding:10px 16px;
+border-radius:6px;
+font-size:14px;
+}
+
+.top-nav a:hover{
+background:#333;
 }
