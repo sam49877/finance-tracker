@@ -24,61 +24,68 @@
 
 <input type="date" id="date" required>
 
-<input type="text" id="category" placeholder="Category" required>
+
+<!-- CATEGORY BUTTONS -->
+
+<label>Category</label>
 
 <div class="button-group">
 
 <button type="button" class="category-btn toggle-btn" data-value="Food">Food</button>
-
 <button type="button" class="category-btn toggle-btn" data-value="Groceries">Groceries</button>
-
 <button type="button" class="category-btn toggle-btn" data-value="Travel">Travel</button>
-
 <button type="button" class="category-btn toggle-btn" data-value="Bills">Bills</button>
-
 <button type="button" class="category-btn toggle-btn" data-value="Recharge">Recharge</button>
-
 <button type="button" class="category-btn toggle-btn" data-value="Health">Health</button>
-
 <button type="button" class="category-btn toggle-btn" data-value="Misc">Misc</button>
 
 </div>
+
 
 <input type="text" id="subcategory" placeholder="Sub Category">
 
 <input type="text" id="description" placeholder="Description">
 
 
+<!-- PAYMENT MODE -->
 
-
-<div class="button-group">
-
-<button type="button" class="toggle-btn" data-type="UPI">UPI</button>
-<button type="button" class="toggle-btn" data-type="CASH">Cash</button>
-
-</div>
-
-<input type="text" id="frequency" placeholder="Frequency (Monthly/Weekly/Misc)">
-
+<label>Payment Mode</label>
 
 <div class="button-group">
 
-<button type="button" class="toggle-btn" data-type="Need">Need</button>
-<button type="button" class="toggle-btn" data-type="Want">Want</button>
+<button type="button" class="payment-btn toggle-btn" data-value="UPI">UPI</button>
+<button type="button" class="payment-btn toggle-btn" data-value="Cash">Cash</button>
 
 </div>
+
+
+<input type="text" id="frequency" placeholder="Frequency">
+
+<input type="text" id="merchant" placeholder="Merchant">
+
+
+<!-- NEED WANT -->
+
+<label>Need / Want</label>
+
+<div class="button-group">
+
+<button type="button" class="need-btn toggle-btn" data-value="Need">Need</button>
+<button type="button" class="need-btn toggle-btn" data-value="Want">Want</button>
+
+</div>
+
 
 <input type="number" id="amount" placeholder="Amount" required>
 
 <input type="text" id="tags" placeholder="Tags">
+
 
 <button type="submit" class="submit-btn">Submit</button>
 
 </form>
 
 </div>
-
-
 
 <script src="script.js"></script>
 

@@ -2,20 +2,18 @@ const scriptURL = "https://script.google.com/macros/s/AKfycbx9hoQWLC77KOaxO__sZu
 
 
 
+let category = "";
 let paymentMode = "";
 let needWant = "";
-let category = "";
 
 
-/* CATEGORY BUTTONS */
+/* CATEGORY */
 
-document.querySelectorAll(".category-btn").forEach(button => {
+document.querySelectorAll(".category-btn").forEach(btn => {
 
-button.addEventListener("click", function(){
+btn.addEventListener("click", function(){
 
-document.querySelectorAll(".category-btn").forEach(btn=>{
-btn.classList.remove("active");
-});
+document.querySelectorAll(".category-btn").forEach(b=>b.classList.remove("active"));
 
 this.classList.add("active");
 
@@ -26,15 +24,13 @@ category = this.dataset.value;
 });
 
 
-/* PAYMENT MODE BUTTONS */
+/* PAYMENT MODE */
 
-document.querySelectorAll(".payment-btn").forEach(button => {
+document.querySelectorAll(".payment-btn").forEach(btn => {
 
-button.addEventListener("click", function(){
+btn.addEventListener("click", function(){
 
-document.querySelectorAll(".payment-btn").forEach(btn=>{
-btn.classList.remove("active");
-});
+document.querySelectorAll(".payment-btn").forEach(b=>b.classList.remove("active"));
 
 this.classList.add("active");
 
@@ -45,15 +41,13 @@ paymentMode = this.dataset.value;
 });
 
 
-/* NEED WANT BUTTONS */
+/* NEED WANT */
 
-document.querySelectorAll(".needwant-btn").forEach(button => {
+document.querySelectorAll(".need-btn").forEach(btn => {
 
-button.addEventListener("click", function(){
+btn.addEventListener("click", function(){
 
-document.querySelectorAll(".needwant-btn").forEach(btn=>{
-btn.classList.remove("active");
-});
+document.querySelectorAll(".need-btn").forEach(b=>b.classList.remove("active"));
 
 this.classList.add("active");
 
@@ -64,8 +58,7 @@ needWant = this.dataset.value;
 });
 
 
-
-/* FORM SUBMIT */
+/* SUBMIT */
 
 document.getElementById("expenseForm").addEventListener("submit", async function(e){
 
@@ -95,19 +88,22 @@ body: JSON.stringify(data)
 
 document.getElementById("expenseForm").reset();
 
-/* RESET BUTTONS */
+
+/* RESET BUTTON STATES */
 
 document.querySelectorAll(".toggle-btn").forEach(btn=>{
 btn.classList.remove("active");
 });
 
+category="";
 paymentMode="";
 needWant="";
-category="";
 
 }
 catch(error){
+
 console.error("Error:",error);
+
 }
 
 });
