@@ -1,5 +1,6 @@
 const scriptURL = "https://script.google.com/macros/s/AKfycbwHOLnxgvZjzzucG31hKqTaqIBWXmQQGwCt5KpyORnwqajmuajCns8sW6Z3tteodT1b/exec";
 
+
 async function loadCategoryChart(){
 
 try{
@@ -40,7 +41,7 @@ borderWidth:1
 
 options:{
 
-indexAxis:'y',   // horizontal bars
+indexAxis:'y',
 
 responsive:true,
 
@@ -53,7 +54,7 @@ display:false
 datalabels:{
 anchor:'end',
 align:'right',
-color:'black',
+color:'#000',
 font:{
 weight:'bold'
 },
@@ -80,7 +81,7 @@ plugins:[ChartDataLabels]
 
 catch(error){
 
-console.error("Error loading chart:",error);
+console.error("Error loading analytics:",error);
 
 }
 

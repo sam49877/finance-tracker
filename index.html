@@ -4,8 +4,7 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Expense Tracker</title>
+<title>Finance Tracker</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -15,121 +14,74 @@
 
 <div class="container">
 
+<div class="top-nav">
+<a href="analytics.html" class="nav-btn">Analytics</a>
+</div>
+
 <h2>Expense Entry</h2>
 
-<input type="date" id="date">
+<form id="expenseForm">
 
-<input type="text" id="month" placeholder="Month">
+<input type="date" id="date" required>
+
+<input type="text" id="category" placeholder="Category" required>
+
+<div class="button-group">
+
+<button type="button" class="category-btn toggle-btn" data-value="Food">Food</button>
+
+<button type="button" class="category-btn toggle-btn" data-value="Groceries">Groceries</button>
+
+<button type="button" class="category-btn toggle-btn" data-value="Travel">Travel</button>
+
+<button type="button" class="category-btn toggle-btn" data-value="Bills">Bills</button>
+
+<button type="button" class="category-btn toggle-btn" data-value="Recharge">Recharge</button>
+
+<button type="button" class="category-btn toggle-btn" data-value="Health">Health</button>
+
+<button type="button" class="category-btn toggle-btn" data-value="Misc">Misc</button>
+
+</div>
+
+<input type="text" id="subcategory" placeholder="Sub Category">
 
 <input type="text" id="description" placeholder="Description">
 
 
-<label>Category</label>
+
 
 <div class="button-group">
 
-<button onclick="selectButton(this,'category')">Transport</button>
-<button onclick="selectButton(this,'category')">Groceries</button>
-<button onclick="selectButton(this,'category')">Utilities</button>
-<button onclick="selectButton(this,'category')">Recharge</button>
-<button onclick="selectButton(this,'category')">Health</button>
+<button type="button" class="toggle-btn" data-type="UPI">UPI</button>
+<button type="button" class="toggle-btn" data-type="CASH">Cash</button>
 
 </div>
 
-<input type="hidden" id="category">
+<input type="text" id="frequency" placeholder="Frequency (Monthly/Weekly/Misc)">
 
-
-<label>Sub Category</label>
-
-<input type="text" id="subcategory">
-
-
-<label>Merchant</label>
 
 <div class="button-group">
 
-<button onclick="selectButton(this,'merchant')">BEST</button>
-<button onclick="selectButton(this,'merchant')">DMart</button>
-<button onclick="selectButton(this,'merchant')">Jio</button>
-<button onclick="selectButton(this,'merchant')">Gym</button>
-<button onclick="selectButton(this,'merchant')">Other</button>
+<button type="button" class="toggle-btn" data-type="Need">Need</button>
+<button type="button" class="toggle-btn" data-type="Want">Want</button>
 
 </div>
 
-<input type="hidden" id="merchant">
-
-
-<label>Payment Mode</label>
-
-<div class="button-group">
-
-<button onclick="selectButton(this,'paymentmode')">UPI</button>
-<button onclick="selectButton(this,'paymentmode')">Cash</button>
-
-</div>
-
-<input type="hidden" id="paymentmode">
-
-
-<label>Source</label>
-
-<input type="text" id="source" placeholder="Salary / Cash / Account">
-
-
-<label>Frequency</label>
-
-<div class="button-group">
-
-<button onclick="selectButton(this,'frequency')">One-Time</button>
-<button onclick="selectButton(this,'frequency')">Weekly</button>
-<button onclick="selectButton(this,'frequency')">Monthly</button>
-<button onclick="selectButton(this,'frequency')">Yearly</button>
-
-</div>
-
-<input type="hidden" id="frequency">
-
-
-<label>Fixed / Variable</label>
-
-<div class="button-group">
-
-<button onclick="selectButton(this,'fixedvariable')">Fixed</button>
-<button onclick="selectButton(this,'fixedvariable')">Variable</button>
-
-</div>
-
-<input type="hidden" id="fixedvariable">
-
-
-<label>Need / Want</label>
-
-<div class="button-group">
-
-<button onclick="selectButton(this,'needwant')">Need</button>
-<button onclick="selectButton(this,'needwant')">Want</button>
-
-</div>
-
-<input type="hidden" id="needwant">
-
-
-<input type="number" id="amount" placeholder="Amount">
+<input type="number" id="amount" placeholder="Amount" required>
 
 <input type="text" id="tags" placeholder="Tags">
 
+<button type="submit" class="submit-btn">Submit</button>
 
-<button class="submit-btn" onclick="submitData()">Add Expense</button>
+</form>
 
 </div>
+
+
 
 <script src="script.js"></script>
 
 </body>
 
 </html>
-
-
-<div class="top-nav">
-<a href="analytics.html">Analytics</a>
-</div>

@@ -1,52 +1,113 @@
 const scriptURL = "https://script.google.com/macros/s/AKfycbx9hoQWLC77KOaxO__sZu20qBjDhu-tn64ps-491p-uuqd5dmsKK2AvOWSTiCVX6xKJ/exec";
 
-function selectButton(button,type){
 
-let buttons = button.parentElement.querySelectorAll("button")
 
-buttons.forEach(btn=>{
-btn.classList.remove("active")
-})
+let paymentMode = "";
+let needWant = "";
+let category = "";
 
-button.classList.add("active")
 
-document.getElementById(type).value = button.innerText
+/* CATEGORY BUTTONS */
 
-}
+document.querySelectorAll(".category-btn").forEach(button => {
 
-function generateTxnId(){
+button.addEventListener("click", function(){
 
-return Math.floor(Math.random()*100000)
+document.querySelectorAll(".category-btn").forEach(btn=>{
+btn.classList.remove("active");
+});
 
-}
+this.classList.add("active");
 
-function submitData(){
+category = this.dataset.value;
 
-let data = {
+});
 
-id:generateTxnId(),
-date:document.getElementById("date").value,
-month:document.getElementById("month").value,
-type:"Expense",
-category:document.getElementById("category").value,
-subcategory:document.getElementById("subcategory").value,
-description:document.getElementById("description").value,
-merchant:document.getElementById("merchant").value,
-paymentmode:document.getElementById("paymentmode").value,
-source:document.getElementById("source").value,
-frequency:document.getElementById("frequency").value,
-fixedvariable:document.getElementById("fixedvariable").value,
-needwant:document.getElementById("needwant").value,
-amount:document.getElementById("amount").value,
-tags:document.getElementById("tags").value
+});
 
-}
 
-fetch(scriptURL,{
+/* PAYMENT MODE BUTTONS */
+
+document.querySelectorAll(".payment-btn").forEach(button => {
+
+button.addEventListener("click", function(){
+
+document.querySelectorAll(".payment-btn").forEach(btn=>{
+btn.classList.remove("active");
+});
+
+this.classList.add("active");
+
+paymentMode = this.dataset.value;
+
+});
+
+});
+
+
+/* NEED WANT BUTTONS */
+
+document.querySelectorAll(".needwant-btn").forEach(button => {
+
+button.addEventListener("click", function(){
+
+document.querySelectorAll(".needwant-btn").forEach(btn=>{
+btn.classList.remove("active");
+});
+
+this.classList.add("active");
+
+needWant = this.dataset.value;
+
+});
+
+});
+
+
+
+/* FORM SUBMIT */
+
+document.getElementById("expenseForm").addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const data = {
+
+date: document.getElementById("date").value,
+category: category,
+subcategory: document.getElementById("subcategory").value,
+description: document.getElementById("description").value,
+paymentMode: paymentMode,
+frequency: document.getElementById("frequency").value,
+merchant: document.getElementById("merchant").value,
+needWant: needWant,
+amount: document.getElementById("amount").value,
+tags: document.getElementById("tags").value
+
+};
+
+try{
+
+await fetch(scriptURL,{
 method:"POST",
-body:JSON.stringify(data)
-})
-.then(response => alert("Entry Added Successfully"))
-.catch(error => alert("Error adding entry"))
+body: JSON.stringify(data)
+});
+
+document.getElementById("expenseForm").reset();
+
+/* RESET BUTTONS */
+
+document.querySelectorAll(".toggle-btn").forEach(btn=>{
+btn.classList.remove("active");
+});
+
+paymentMode="";
+needWant="";
+category="";
 
 }
+catch(error){
+console.error("Error:",error);
+}
+
+});
