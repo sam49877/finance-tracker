@@ -107,3 +107,26 @@ console.error("Error:",error);
 }
 
 });
+
+document.querySelectorAll(".category-btn").forEach(btn => {
+
+btn.addEventListener("click", function(){
+
+document.querySelectorAll(".category-btn").forEach(b=>b.classList.remove("active"));
+
+this.classList.add("active");
+
+category = this.dataset.value;
+
+
+/* AUTO SCROLL TO SELECTED BUTTON */
+
+this.scrollIntoView({
+behavior:"smooth",
+inline:"center",
+block:"nearest"
+});
+
+});
+
+});
