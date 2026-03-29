@@ -2,11 +2,11 @@
 <html>
 
 <head>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Finance Tracker</title>
 
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 </head>
 
@@ -19,17 +19,17 @@
 </div>
 
 <h2>Add Expense</h2>
-<p class="subtitle">Track your daily spending</p>
+
+<!-- MONTHLY TOTAL -->
+<div id="monthlyTotal" class="monthly-box">This Month: Loading...</div>
 
 <form id="expenseForm">
 
 <input type="date" id="date" required>
 
-
-<!-- CATEGORY BUTTONS -->
-
+<!-- CATEGORY -->
+<label>Category</label>
 <div class="button-group category-scroll">
-
 <button type="button" class="category-btn toggle-btn" data-value="Food">Food</button>
 <button type="button" class="category-btn toggle-btn" data-value="Groceries">Groceries</button>
 <button type="button" class="category-btn toggle-btn" data-value="Travel">Travel</button>
@@ -37,48 +37,45 @@
 <button type="button" class="category-btn toggle-btn" data-value="Recharge">Recharge</button>
 <button type="button" class="category-btn toggle-btn" data-value="Health">Health</button>
 <button type="button" class="category-btn toggle-btn" data-value="Misc">Misc</button>
-
 </div>
 
-
-<input type="text" id="subcategory" placeholder="Sub Category">
+<!-- SUBCATEGORY -->
+<label>Sub Category</label>
+<div id="subcategoryContainer" class="button-group"></div>
+<input type="text" id="subcategoryInput" placeholder="Enter Sub Category" style="display:none;">
 
 <input type="text" id="description" placeholder="Description">
 
-
-<!-- PAYMENT MODE -->
-
+<!-- PAYMENT -->
 <label>Payment Mode</label>
-
 <div class="button-group">
-
 <button type="button" class="payment-btn toggle-btn" data-value="UPI">UPI</button>
 <button type="button" class="payment-btn toggle-btn" data-value="Cash">Cash</button>
-
 </div>
-
 
 <input type="text" id="frequency" placeholder="Frequency">
-
 <input type="text" id="merchant" placeholder="Merchant">
 
-
-<!-- NEED WANT -->
-
+<!-- NEED/WANT -->
 <label>Need / Want</label>
-
 <div class="button-group">
-
 <button type="button" class="need-btn toggle-btn" data-value="Need">Need</button>
 <button type="button" class="need-btn toggle-btn" data-value="Want">Want</button>
-
 </div>
 
+<!-- QUICK AMOUNT -->
+<label>Quick Amount</label>
+<div class="button-group">
+<button type="button" class="amount-btn toggle-btn">20</button>
+<button type="button" class="amount-btn toggle-btn">50</button>
+<button type="button" class="amount-btn toggle-btn">100</button>
+<button type="button" class="amount-btn toggle-btn">200</button>
+<button type="button" class="amount-btn toggle-btn">500</button>
+</div>
 
 <input type="number" id="amount" placeholder="Amount" required>
 
 <input type="text" id="tags" placeholder="Tags">
-
 
 <button type="submit" class="submit-btn">Submit</button>
 
@@ -89,5 +86,4 @@
 <script src="script.js"></script>
 
 </body>
-
 </html>
