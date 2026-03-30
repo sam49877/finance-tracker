@@ -1,11 +1,12 @@
 const scriptURL = "https://script.google.com/macros/s/AKfycbx9hoQWLC77KOaxO__sZu20qBjDhu-tn64ps-491p-uuqd5dmsKK2AvOWSTiCVX6xKJ/exec";
 
+const monthlyURL = scriptURL; // same URL
 
-const monthlyURL = "https://script.google.com/macros/s/AKfycbx9hoQWLC77KOaxO__sZu20qBjDhu-tn64ps-491p-uuqd5dmsKK2AvOWSTiCVX6xKJ/exec"; 
 let category = "";
 let subcategory = "";
 let paymentMode = "";
 let needWant = "";
+
 
 /* CATEGORY MAP */
 
@@ -20,12 +21,15 @@ Misc: ["Pet", "Tea Break", "Other"]
 
 };
 
+
 /* AUTO DATE */
 
 const dateInput = document.getElementById("date");
+
 if(!dateInput.value){
 dateInput.valueAsDate = new Date();
 }
+
 
 /* LOAD LAST MEMORY */
 
@@ -39,7 +43,9 @@ category = saved.category || "";
 paymentMode = saved.paymentMode || "UPI";
 needWant = saved.needWant || "";
 
-/* Restore selections visually */
+
+/* Restore UI */
+
 document.querySelectorAll(".category-btn").forEach(btn=>{
 if(btn.dataset.value === category){
 btn.classList.add("active");
@@ -65,6 +71,7 @@ loadMonthlyTotal();
 
 };
 
+
 /* CATEGORY CLICK */
 
 document.querySelectorAll(".category-btn").forEach(btn => {
@@ -81,6 +88,7 @@ handleSubcategoryUI(category);
 });
 
 });
+
 
 /* SUBCATEGORY UI */
 
@@ -102,7 +110,7 @@ input.style.display = "block";
 container.style.display = "flex";
 input.style.display = "none";
 
-categoryMap[selectedCategory].forEach(item => {
+(categoryMap[selectedCategory] || []).forEach(item => {
 
 let btn = document.createElement("button");
 
@@ -128,6 +136,7 @@ container.appendChild(btn);
 
 }
 
+
 /* PAYMENT */
 
 document.querySelectorAll(".payment-btn").forEach(btn => {
@@ -142,6 +151,7 @@ paymentMode = this.dataset.value;
 });
 
 });
+
 
 /* NEED/WANT */
 
@@ -158,6 +168,7 @@ needWant = this.dataset.value;
 
 });
 
+
 /* QUICK AMOUNT */
 
 document.querySelectorAll(".amount-btn").forEach(btn => {
@@ -170,23 +181,31 @@ document.getElementById("amount").value = this.innerText;
 
 });
 
-/* MONTHLY TOTAL */
+
+/* MONTHLY TOTAL (FIXED) */
 
 async function loadMonthlyTotal(){
 
 try{
-const res = await fetch(monthlyURL);
+
+const res = await fetch(monthlyURL + "?action=monthlyTotal"); // ✅ FIX
 const data = await res.json();
 
 document.getElementById("monthlyTotal").innerText =
-"This Month: ₹ " + data.total;
+"This Month: ₹ " + (data.total || 0);
 
-}catch{
+}
+catch(error){
+
+console.error("Monthly total error:", error);
+
 document.getElementById("monthlyTotal").innerText =
 "This Month: --";
+
 }
 
 }
+
 
 /* SUBMIT */
 
@@ -218,6 +237,7 @@ method:"POST",
 body: JSON.stringify(data)
 });
 
+
 /* SAVE MEMORY */
 
 localStorage.setItem("lastEntry", JSON.stringify({
@@ -225,6 +245,9 @@ category,
 paymentMode,
 needWant
 }));
+
+
+/* RESET FORM */
 
 document.getElementById("expenseForm").reset();
 
@@ -236,5 +259,10 @@ btn.classList.remove("active");
 
 document.getElementById("subcategoryContainer").innerHTML = "";
 document.getElementById("subcategoryInput").style.display = "none";
+
+
+/* REFRESH TOTAL AFTER SUBMIT */
+
+loadMonthlyTotal();
 
 });
